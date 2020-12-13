@@ -1,8 +1,11 @@
 var player1 = Roll();
 var player2 = Roll();
+var die1 = document.getElementById("player1Die");
+var die2 = document.getElementById("player2Die");
 
 GetWinner();
-DisplayPlayerDice(player1, player2);
+DisplayPlayerDice(player1, die1);
+DisplayPlayerDice(player2, die2);
 
 function Roll(){
     var dieRolled = Math.random();
@@ -32,15 +35,9 @@ function DisplayWinner(message){
     document.getElementById("winner").textContent = message;
 }
 
-function DisplayPlayerDice(player1Die, player2Die){
-    var die1 = document.getElementById("player1Die");
-    var die2 = document.getElementById("player2Die");
-
-    die1.classList.remove("fa-dice");
-    die2.classList.remove("fa-dice");
-
-    die1.classList.add(GetDiceIcon(player1Die));
-    die2.classList.add(GetDiceIcon(player2Die));
+function DisplayPlayerDice(player, die){
+    die.classList.remove("fa-dice");
+    die.classList.add(GetDiceIcon(player));
 }
 
 function GetDiceIcon(rollNumber){
